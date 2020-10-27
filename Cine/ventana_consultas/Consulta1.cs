@@ -46,6 +46,7 @@ namespace Cine
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(80, 22);
             this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dgvConsulta1
             // 
@@ -86,6 +87,11 @@ namespace Cine
 
             //row.CreateCells(dgvConsulta1);
             //row.Cells[0].Value = "Hola";
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
