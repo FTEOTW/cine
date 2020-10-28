@@ -41,10 +41,10 @@ namespace Cine
             // 
             this.dateTimePicker1.CustomFormat = "yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(239, 379);
+            this.dateTimePicker1.Location = new System.Drawing.Point(581, 119);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(80, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(80, 20);
             this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -53,12 +53,13 @@ namespace Cine
             this.dgvConsulta1.AllowUserToAddRows = false;
             this.dgvConsulta1.AllowUserToDeleteRows = false;
             this.dgvConsulta1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta1.Location = new System.Drawing.Point(12, 12);
+            this.dgvConsulta1.Location = new System.Drawing.Point(12, 172);
             this.dgvConsulta1.Name = "dgvConsulta1";
             this.dgvConsulta1.ReadOnly = true;
             this.dgvConsulta1.RowTemplate.Height = 24;
             this.dgvConsulta1.Size = new System.Drawing.Size(692, 218);
             this.dgvConsulta1.TabIndex = 2;
+            this.dgvConsulta1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta1_CellContentClick);
             // 
             // Consulta1
             // 
@@ -90,6 +91,11 @@ namespace Cine
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvConsulta1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
