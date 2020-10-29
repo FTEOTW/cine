@@ -25,8 +25,8 @@ namespace Cine.database
             if (conn == null)
             {
                 conn = new SqlConnection(
-                    "Data Source=LAPTOP-KACP1EFJ\\EAVILASQL;" +
-                    "Initial Catalog=CINE;" +
+                    "Data Source=DESKTOP-01N6THC\\SQLEXPRESS;" +
+                    "Initial Catalog=cine;" +
                     "Integrated Security=SSPI");
                 conn.Open();
             }

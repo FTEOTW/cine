@@ -61,6 +61,27 @@
     <Compile Include="ventana_consultas\Consulta1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ventana_consultas\Consulta2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventana_consultas\Consulta8.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Cine.resx">
       <DependentUpon>Cine.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +96,27 @@
     </Compile>
     <EmbeddedResource Include="ventana_consultas\Consulta1.resx">
       <DependentUpon>Consulta1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta2.resx">
+      <DependentUpon>Consulta2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta3.resx">
+      <DependentUpon>Consulta3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta4.resx">
+      <DependentUpon>Consulta4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta5.resx">
+      <DependentUpon>Consulta5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta6.resx">
+      <DependentUpon>Consulta6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta7.resx">
+      <DependentUpon>Consulta7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventana_consultas\Consulta8.resx">
+      <DependentUpon>Consulta8.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
