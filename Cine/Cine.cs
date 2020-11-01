@@ -19,9 +19,8 @@ namespace Cine
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConsulta1_Click(object sender, EventArgs e)
         {
-           // panelC1.Visible = true;
             Consulta1 c = new Consulta1();
             c.ShowDialog();
         }
@@ -32,17 +31,16 @@ namespace Cine
             consulta2.ShowDialog();
         }
 
-        private void btnConsulta_Click(object sender, EventArgs e)
+        private void btnConsulta3_Click(object sender, EventArgs e)
         {
-            ConsultaDB con = new ConsultaDB();
-            con.ejecutarConsulta("exec consulta1 " + dateTimePicker1.Text, 1);
-
-            dgvConsulta1.DataSource = con.pGetTable;
+            Consulta3 consulta3 = new Consulta3();
+            consulta3.ShowDialog();
         }
 
-        private void panelC1_Paint(object sender, PaintEventArgs e)
+        private void btnConsulta4_Click(object sender, EventArgs e)
         {
-
+            Consulta4 consulta4 = new Consulta4();
+            consulta4.ShowDialog();
         }
 
         private void btnConsulta5_Click(object sender, EventArgs e)
@@ -57,18 +55,6 @@ namespace Cine
             consulta6.ShowDialog();
         }
 
-        private void Consulta3_Click(object sender, EventArgs e)
-        {
-            Consulta3 consulta3 = new Consulta3();
-            consulta3.ShowDialog();
-        }
-
-        private void btnConsulta4_Click(object sender, EventArgs e)
-        {
-            Consulta4 consulta4 = new Consulta4();
-            consulta4.ShowDialog();
-        }
-
         private void btnConsulta7_Click(object sender, EventArgs e)
         {
             Consulta7 consulta7 = new Consulta7();
@@ -77,8 +63,8 @@ namespace Cine
 
         private void btnConsulta8_Click(object sender, EventArgs e)
         {
-            Consulta7 consulta7 = new Consulta7();
-            consulta7.ShowDialog();
+            Consulta8 consulta8 = new Consulta8();
+            consulta8.ShowDialog();
         }
     }
 }

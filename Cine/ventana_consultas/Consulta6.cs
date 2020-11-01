@@ -12,6 +12,7 @@ namespace Cine.ventana_consultas
     {
         private DataGridView dgvConsulta1;
         private Label lblConsulta6;
+        private Label lblRow;
         private Button btnConsulta;
 
         public Consulta6()
@@ -24,6 +25,7 @@ namespace Cine.ventana_consultas
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.lblConsulta6 = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +60,24 @@ namespace Cine.ventana_consultas
             this.lblConsulta6.TabIndex = 6;
             this.lblConsulta6.Text = "Muestra los clientes que se le cayeron la reserva";
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 369);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 7;
+            // 
             // Consulta6
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.lblConsulta6);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta6";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 6";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -76,7 +89,7 @@ namespace Cine.ventana_consultas
             ConsultaDB con = new ConsultaDB();
             con.ejecutarConsulta("exec consulta6 " , 1);
             dgvConsulta1.DataSource = con.pGetTable;
-
+            lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
         }
     }
 }

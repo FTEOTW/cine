@@ -20,6 +20,7 @@ namespace Cine.ventana_consultas
         private Label label2;
         private Label label3;
         private Label label4;
+        private Label lblRow;
         private Button btnConsulta;
 
         public Consulta7()
@@ -40,6 +41,7 @@ namespace Cine.ventana_consultas
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,14 +53,15 @@ namespace Cine.ventana_consultas
             this.lblConsulta2.Size = new System.Drawing.Size(367, 13);
             this.lblConsulta2.TabIndex = 15;
             this.lblConsulta2.Text = "Listado de actores donde su nombre no comience con las letras A hasta la F";
-            this.lblConsulta2.Click += new System.EventHandler(this.lblConsulta2_Click);
             // 
             // txtnombreActorTo
             // 
             this.txtnombreActorTo.Location = new System.Drawing.Point(544, 19);
+            this.txtnombreActorTo.MaxLength = 1;
             this.txtnombreActorTo.Name = "txtnombreActorTo";
             this.txtnombreActorTo.Size = new System.Drawing.Size(100, 20);
             this.txtnombreActorTo.TabIndex = 14;
+            this.txtnombreActorTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombreActorTo_KeyPress);
             // 
             // dgvConsulta1
             // 
@@ -85,23 +88,29 @@ namespace Cine.ventana_consultas
             // txtApellidoTo
             // 
             this.txtApellidoTo.Location = new System.Drawing.Point(403, 61);
+            this.txtApellidoTo.MaxLength = 1;
             this.txtApellidoTo.Name = "txtApellidoTo";
             this.txtApellidoTo.Size = new System.Drawing.Size(100, 20);
             this.txtApellidoTo.TabIndex = 16;
+            this.txtApellidoTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoTo_KeyPress);
             // 
             // txtApellidoFrom
             // 
             this.txtApellidoFrom.Location = new System.Drawing.Point(547, 61);
+            this.txtApellidoFrom.MaxLength = 1;
             this.txtApellidoFrom.Name = "txtApellidoFrom";
             this.txtApellidoFrom.Size = new System.Drawing.Size(100, 20);
             this.txtApellidoFrom.TabIndex = 17;
+            this.txtApellidoFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoFrom_KeyPress);
             // 
             // txtnombreActorFrom
             // 
             this.txtnombreActorFrom.Location = new System.Drawing.Point(403, 19);
+            this.txtnombreActorFrom.MaxLength = 1;
             this.txtnombreActorFrom.Name = "txtnombreActorFrom";
             this.txtnombreActorFrom.Size = new System.Drawing.Size(100, 20);
             this.txtnombreActorFrom.TabIndex = 18;
+            this.txtnombreActorFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombreActorFrom_KeyPress);
             // 
             // label1
             // 
@@ -139,9 +148,18 @@ namespace Cine.ventana_consultas
             this.label4.TabIndex = 22;
             this.label4.Text = "Apellido Director hasta";
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 351);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 23;
+            // 
             // Consulta7
             // 
             this.ClientSize = new System.Drawing.Size(669, 391);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -154,23 +172,50 @@ namespace Cine.ventana_consultas
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta7";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 7";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void lblConsulta2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnConsulta_Click(object sender, EventArgs e)
         {
             ConsultaDB con = new ConsultaDB();
-           // con.ejecutarConsulta("exec consulta7 "  + , 1); //TODO  Parametrizacion consulta 7
+            if (String.IsNullOrEmpty(txtnombreActorFrom.Text) || String.IsNullOrEmpty(txtnombreActorTo.Text) || String.IsNullOrEmpty(txtApellidoFrom.Text) || String.IsNullOrEmpty(txtApellidoTo.Text))
+            {
+                MessageBox.Show("El valor del campo no debe estar vacio");
+            }
+            else
+            {
+                // exec consulta7 'a','f','s','z'
+                con.ejecutarConsulta("exec consulta7 " + "'" + txtnombreActorFrom.Text + "'," + "'" + txtnombreActorTo.Text + "'," +
+               "'" + txtApellidoFrom.Text + "'," + "'" + txtApellidoTo.Text + "'", 1);
 
-            dgvConsulta1.DataSource = con.pGetTable;
+                dgvConsulta1.DataSource = con.pGetTable;
+                lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
+            }
+        }
+
+        private void txtnombreActorFrom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtnombreActorTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtApellidoTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtApellidoFrom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
     }
 }

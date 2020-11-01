@@ -13,6 +13,7 @@ namespace Cine.ventana_consultas
         private DataGridView dgvConsulta1;
         private TextBox txtCantidadVisitas;
         private Label lblConsulta2;
+        private Label lblRow;
         private Button btnConsulta;
 
         public Consulta2()
@@ -26,6 +27,7 @@ namespace Cine.ventana_consultas
             this.btnConsulta = new System.Windows.Forms.Button();
             this.txtCantidadVisitas = new System.Windows.Forms.TextBox();
             this.lblConsulta2 = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +59,7 @@ namespace Cine.ventana_consultas
             this.txtCantidadVisitas.Name = "txtCantidadVisitas";
             this.txtCantidadVisitas.Size = new System.Drawing.Size(100, 20);
             this.txtCantidadVisitas.TabIndex = 6;
+            this.txtCantidadVisitas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadVisitas_KeyPress);
             // 
             // lblConsulta2
             // 
@@ -67,14 +70,25 @@ namespace Cine.ventana_consultas
             this.lblConsulta2.TabIndex = 7;
             this.lblConsulta2.Text = "Todas las visitas al cine hechas por clientes que fueron X veces algun año";
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 306);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 8;
+            // 
             // Consulta2
             // 
             this.ClientSize = new System.Drawing.Size(567, 342);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtCantidadVisitas);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 2";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,8 +98,25 @@ namespace Cine.ventana_consultas
         private void btnConsulta_Click(object sender, EventArgs e)
         {
             ConsultaDB con = new ConsultaDB();
-            con.ejecutarConsulta("exec consulta2 " + txtCantidadVisitas.Text, 1);
-            dgvConsulta1.DataSource = con.pGetTable;
+            if (String.IsNullOrEmpty(txtCantidadVisitas.Text))
+            {
+                MessageBox.Show("El valor del campo no debe estar vacio");
+                txtCantidadVisitas.Focus();
+            }
+            else
+            {
+                con.ejecutarConsulta("exec consulta2 " + txtCantidadVisitas.Text, 1);
+                dgvConsulta1.DataSource = con.pGetTable;
+                lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
+            }
+        }
+
+        private void txtCantidadVisitas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -13,7 +13,11 @@ namespace Cine.ventana_consultas
         private DataGridView dgvConsulta5;
         private TextBox txtEdadFrom;
         private MaskedTextBox txtEdadTo;
-        private Button btnConsulta;
+        private Label lblConsulta2;
+        private Label label1;
+        private Label label2;
+        private Label lblRow;
+        private Button btnConsulta5;
 
         public Consulta5()
         {
@@ -22,22 +26,26 @@ namespace Cine.ventana_consultas
 
         private void InitializeComponent()
         {
-            this.btnConsulta = new System.Windows.Forms.Button();
+            this.btnConsulta5 = new System.Windows.Forms.Button();
             this.dgvConsulta5 = new System.Windows.Forms.DataGridView();
             this.txtEdadFrom = new System.Windows.Forms.TextBox();
             this.txtEdadTo = new System.Windows.Forms.MaskedTextBox();
+            this.lblConsulta2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta5)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnConsulta
+            // btnConsulta5
             // 
-            this.btnConsulta.Location = new System.Drawing.Point(626, 356);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(75, 23);
-            this.btnConsulta.TabIndex = 0;
-            this.btnConsulta.Text = "Consulta";
-            this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.button1_Click);
+            this.btnConsulta5.Location = new System.Drawing.Point(499, 369);
+            this.btnConsulta5.Name = "btnConsulta5";
+            this.btnConsulta5.Size = new System.Drawing.Size(202, 52);
+            this.btnConsulta5.TabIndex = 0;
+            this.btnConsulta5.Text = "Consulta";
+            this.btnConsulta5.UseVisualStyleBackColor = true;
+            this.btnConsulta5.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvConsulta5
             // 
@@ -53,26 +61,70 @@ namespace Cine.ventana_consultas
             // 
             // txtEdadFrom
             // 
-            this.txtEdadFrom.Location = new System.Drawing.Point(466, 91);
+            this.txtEdadFrom.Location = new System.Drawing.Point(78, 53);
             this.txtEdadFrom.Name = "txtEdadFrom";
             this.txtEdadFrom.Size = new System.Drawing.Size(100, 20);
             this.txtEdadFrom.TabIndex = 4;
+            this.txtEdadFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdadFrom_KeyPress);
             // 
             // txtEdadTo
             // 
-            this.txtEdadTo.Location = new System.Drawing.Point(601, 91);
+            this.txtEdadTo.Location = new System.Drawing.Point(78, 86);
             this.txtEdadTo.Name = "txtEdadTo";
             this.txtEdadTo.Size = new System.Drawing.Size(100, 20);
             this.txtEdadTo.TabIndex = 5;
+            this.txtEdadTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdadTo_KeyPress);
+            // 
+            // lblConsulta2
+            // 
+            this.lblConsulta2.AutoSize = true;
+            this.lblConsulta2.Location = new System.Drawing.Point(23, 23);
+            this.lblConsulta2.Name = "lblConsulta2";
+            this.lblConsulta2.Size = new System.Drawing.Size(576, 13);
+            this.lblConsulta2.TabIndex = 16;
+            this.lblConsulta2.Text = " Listar las películas que fueron vistas por los clientes en el rango de edad de X" +
+    " a X  años, ordenar en forma descendente";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Desde";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Hasta";
+            // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 389);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 19;
             // 
             // Consulta5
             // 
-            this.ClientSize = new System.Drawing.Size(713, 391);
+            this.ClientSize = new System.Drawing.Size(713, 450);
+            this.Controls.Add(this.lblRow);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtEdadTo);
             this.Controls.Add(this.txtEdadFrom);
             this.Controls.Add(this.dgvConsulta5);
-            this.Controls.Add(this.btnConsulta);
+            this.Controls.Add(this.btnConsulta5);
             this.Name = "Consulta5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 5";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -82,13 +134,37 @@ namespace Cine.ventana_consultas
         private void button1_Click(object sender, EventArgs e)
         {
             ConsultaDB con = new ConsultaDB();
+            if (String.IsNullOrEmpty(txtEdadFrom.Text) || String.IsNullOrEmpty(txtEdadTo.Text))
+            {
+                MessageBox.Show("El valor del campo no debe estar vacio");
+            }
+            else
+            {
+                int edadFrom = Convert.ToInt32(txtEdadFrom.Text);
+                int edadTo = Convert.ToInt32(txtEdadTo.Text);
+                con.ejecutarConsulta("exec consulta5 " + edadFrom + "," + edadTo, 1);
+                //con.ejecutarConsulta("exec consulta5 30, 40", 1);
+                dgvConsulta5.DataSource = con.pGetTable;
+                lblRow.Text = Convert.ToString(dgvConsulta5.RowCount) + " rows";
+            }
 
-            int edadFrom = Convert.ToInt32(txtEdadFrom.Text);
-            int edadTo =   Convert.ToInt32(txtEdadTo.Text);
+            
+        }
 
-            con.ejecutarConsulta("exec consulta5 " + edadFrom  + edadTo , 1); //TODO  Parametrizacion consulta 5
+        private void txtEdadFrom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
-            dgvConsulta5.DataSource = con.pGetTable;
+        private void txtEdadTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

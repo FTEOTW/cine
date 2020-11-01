@@ -13,6 +13,7 @@ namespace Cine.ventana_consultas
         private Label lblConsulta2;
         private TextBox txtCantidadAnios;
         private DataGridView dgvConsulta1;
+        private Label lblRow;
         private Button btnConsulta;
 
         public Consulta3()
@@ -26,6 +27,7 @@ namespace Cine.ventana_consultas
             this.txtCantidadAnios = new System.Windows.Forms.TextBox();
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@ namespace Cine.ventana_consultas
             this.txtCantidadAnios.Name = "txtCantidadAnios";
             this.txtCantidadAnios.Size = new System.Drawing.Size(100, 20);
             this.txtCantidadAnios.TabIndex = 10;
+            this.txtCantidadAnios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadAnios_KeyPress);
             // 
             // dgvConsulta1
             // 
@@ -67,14 +70,25 @@ namespace Cine.ventana_consultas
             this.btnConsulta.UseVisualStyleBackColor = true;
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(9, 306);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 12;
+            // 
             // Consulta3
             // 
             this.ClientSize = new System.Drawing.Size(571, 346);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtCantidadAnios);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 3";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,8 +98,25 @@ namespace Cine.ventana_consultas
         private void btnConsulta_Click(object sender, EventArgs e)
         {
             ConsultaDB con = new ConsultaDB();
-            con.ejecutarConsulta("exec consulta3 " + txtCantidadAnios.Text, 1);
-            dgvConsulta1.DataSource = con.pGetTable;
+            if (String.IsNullOrEmpty(txtCantidadAnios.Text))
+            {
+                MessageBox.Show("El valor del campo no debe estar vacio");
+                txtCantidadAnios.Focus();
+            }
+            else
+            {
+                con.ejecutarConsulta("exec consulta3 " + txtCantidadAnios.Text, 1);
+                dgvConsulta1.DataSource = con.pGetTable;
+                lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
+            }
+        }
+
+        private void txtCantidadAnios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

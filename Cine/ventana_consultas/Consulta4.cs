@@ -13,6 +13,7 @@ namespace Cine.ventana_consultas
         private Label lblConsulta2;
         private DataGridView dgvConsulta1;
         private DateTimePicker dateTimePicker1;
+        private Label lblRow;
         private Button btnConsulta;
 
         public Consulta4()
@@ -26,6 +27,7 @@ namespace Cine.ventana_consultas
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,14 +72,25 @@ namespace Cine.ventana_consultas
             this.dateTimePicker1.Size = new System.Drawing.Size(80, 20);
             this.dateTimePicker1.TabIndex = 16;
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 300);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 17;
+            // 
             // Consulta4
             // 
             this.ClientSize = new System.Drawing.Size(568, 340);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 4";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -89,6 +102,7 @@ namespace Cine.ventana_consultas
             ConsultaDB con = new ConsultaDB();
             con.ejecutarConsulta("exec consulta4 " + dateTimePicker1.Text, 1);
             dgvConsulta1.DataSource = con.pGetTable;
+            lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
         }
     }
 }

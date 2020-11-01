@@ -16,7 +16,13 @@ namespace Cine.ventana_consultas
         private TextBox txtDuracionPeliculaHasta;
         private Label lblConsulta2;
         private DataGridView dgvConsulta1;
+        private Label lblRow;
         private Button btnConsulta;
+
+        public Consulta8()
+        {
+            InitializeComponent();
+        }
 
         private void InitializeComponent()
         {
@@ -27,40 +33,43 @@ namespace Cine.ventana_consultas
             this.lblConsulta2 = new System.Windows.Forms.Label();
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
+            this.lblRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(561, 56);
+            this.label3.Location = new System.Drawing.Point(32, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Duracion pelicula hasta";
+            this.label3.Text = "Duracion hasta";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(419, 59);
+            this.label1.Location = new System.Drawing.Point(29, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Duracion pelicula desde";
+            this.label1.Text = "Duracion  desde";
             // 
             // txtDuracionPeliculaDesde
             // 
-            this.txtDuracionPeliculaDesde.Location = new System.Drawing.Point(422, 75);
+            this.txtDuracionPeliculaDesde.Location = new System.Drawing.Point(137, 41);
             this.txtDuracionPeliculaDesde.Name = "txtDuracionPeliculaDesde";
             this.txtDuracionPeliculaDesde.Size = new System.Drawing.Size(100, 20);
             this.txtDuracionPeliculaDesde.TabIndex = 26;
+            this.txtDuracionPeliculaDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDuracionPeliculaDesde_KeyPress);
             // 
             // txtDuracionPeliculaHasta
             // 
-            this.txtDuracionPeliculaHasta.Location = new System.Drawing.Point(564, 75);
+            this.txtDuracionPeliculaHasta.Location = new System.Drawing.Point(137, 71);
             this.txtDuracionPeliculaHasta.Name = "txtDuracionPeliculaHasta";
             this.txtDuracionPeliculaHasta.Size = new System.Drawing.Size(100, 20);
             this.txtDuracionPeliculaHasta.TabIndex = 25;
+            this.txtDuracionPeliculaHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDuracionPeliculaHasta_KeyPress);
             // 
             // lblConsulta2
             // 
@@ -94,9 +103,18 @@ namespace Cine.ventana_consultas
             this.btnConsulta.UseVisualStyleBackColor = true;
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(12, 373);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(0, 13);
+            this.lblRow.TabIndex = 29;
+            // 
             // Consulta8
             // 
             this.ClientSize = new System.Drawing.Size(688, 417);
+            this.Controls.Add(this.lblRow);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDuracionPeliculaDesde);
@@ -105,6 +123,8 @@ namespace Cine.ventana_consultas
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta8";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta 8";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,9 +134,32 @@ namespace Cine.ventana_consultas
         private void btnConsulta_Click(object sender, EventArgs e)
         {
             ConsultaDB con = new ConsultaDB();
-            // con.ejecutarConsulta("exec consulta8 "  + , 1); //TODO  Parametrizacion consulta 8
+            if (String.IsNullOrEmpty(txtDuracionPeliculaDesde.Text) || String.IsNullOrEmpty(txtDuracionPeliculaHasta.Text))
+            {
+                MessageBox.Show("El valor del campo no debe estar vacio");
+            }
+            else
+            {
+                con.ejecutarConsulta("exec consulta8 " + txtDuracionPeliculaDesde.Text + ", " + txtDuracionPeliculaHasta.Text, 1); //TODO  Parametrizacion consulta 8
+                dgvConsulta1.DataSource = con.pGetTable;
+                lblRow.Text = Convert.ToString(dgvConsulta1.RowCount) + " rows";
+            }
+        }
 
-            dgvConsulta1.DataSource = con.pGetTable;
+        private void txtDuracionPeliculaDesde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDuracionPeliculaHasta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
