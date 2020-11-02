@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Cine.ventana_consultas
 {
-    class Consulta3 : Form
+    class Consulta3 : Control
     {
         private Label lblConsulta2;
         private TextBox txtCantidadAnios;
@@ -87,7 +87,7 @@ namespace Cine.ventana_consultas
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 3";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

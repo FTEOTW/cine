@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Cine.utils;
 namespace Cine.ventana_consultas
 {
-    class Consulta2 : Form
+    class Consulta2 : Control
     {
         private DataGridView dgvConsulta1;
         private TextBox txtCantidadVisitas;
@@ -128,7 +128,7 @@ namespace Cine.ventana_consultas
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 2";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

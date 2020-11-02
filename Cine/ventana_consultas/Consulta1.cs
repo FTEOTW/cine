@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Cine.utils;
 namespace Cine
 {
-    public partial class Consulta1 : Form
+    public partial class Consulta1 : Control
     {
         private Button btnConsulta;
         private DataGridView dgvConsulta1;
@@ -129,9 +129,9 @@ namespace Cine
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Consulta1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

@@ -9,62 +9,71 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cine.database;
 using Cine.ventana_consultas;
-
+using Cine.utils;
 namespace Cine
 {
     public partial class Cine : Form
     {
+        private Control aux = null;
         public Cine()
         {
             InitializeComponent();
         }
 
+        private void ChangeControl(Control control)
+        {
+            if(aux == null)
+            {
+                splitContainer1.Panel2.Controls.Add(control);
+                aux = control;
+            }
+            else
+            {
+                splitContainer1.Panel2.Controls.Remove(aux);
+                splitContainer1.Panel2.Controls.Add(control);
+                aux = control;
+            }
+            
+        }
+
         private void btnConsulta1_Click(object sender, EventArgs e)
         {
-            Consulta1 c = new Consulta1();
-            c.ShowDialog();
+            ChangeControl(new Consulta1());
         }
 
         private void btnConsulta2_Click(object sender, EventArgs e)
         {
-            Consulta2 consulta2 = new Consulta2();
-            consulta2.ShowDialog();
+            ChangeControl(new Consulta2());
         }
 
         private void btnConsulta3_Click(object sender, EventArgs e)
         {
-            Consulta3 consulta3 = new Consulta3();
-            consulta3.ShowDialog();
+            ChangeControl(new Consulta3());
         }
 
         private void btnConsulta4_Click(object sender, EventArgs e)
         {
-            Consulta4 consulta4 = new Consulta4();
-            consulta4.ShowDialog();
+            ChangeControl(new Consulta4());
         }
 
         private void btnConsulta5_Click(object sender, EventArgs e)
         {
-            Consulta5 consulta5 = new Consulta5();
-            consulta5.ShowDialog();
+            ChangeControl(new Consulta5());
         }
 
         private void btnConsulta6_Click(object sender, EventArgs e)
         {
-            Consulta6 consulta6 = new Consulta6();
-            consulta6.ShowDialog();
+            ChangeControl(new Consulta6());
         }
 
         private void btnConsulta7_Click(object sender, EventArgs e)
         {
-            Consulta7 consulta7 = new Consulta7();
-            consulta7.ShowDialog();
+            ChangeControl(new Consulta7());
         }
 
         private void btnConsulta8_Click(object sender, EventArgs e)
         {
-            Consulta8 consulta8 = new Consulta8();
-            consulta8.ShowDialog();
+            ChangeControl(new Consulta8());
         }
     }
 }

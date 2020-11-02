@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cine));
             this.btnConsulta1 = new System.Windows.Forms.Button();
             this.btnConsulta2 = new System.Windows.Forms.Button();
             this.btnConsulta5 = new System.Windows.Forms.Button();
@@ -36,12 +37,16 @@
             this.btnConsulta4 = new System.Windows.Forms.Button();
             this.btnConsulta7 = new System.Windows.Forms.Button();
             this.btnConsulta8 = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConsulta1
             // 
             this.btnConsulta1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta1.Location = new System.Drawing.Point(9, 28);
+            this.btnConsulta1.Location = new System.Drawing.Point(35, 28);
             this.btnConsulta1.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta1.Name = "btnConsulta1";
             this.btnConsulta1.Size = new System.Drawing.Size(147, 33);
@@ -53,7 +58,7 @@
             // btnConsulta2
             // 
             this.btnConsulta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta2.Location = new System.Drawing.Point(9, 77);
+            this.btnConsulta2.Location = new System.Drawing.Point(35, 77);
             this.btnConsulta2.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta2.Name = "btnConsulta2";
             this.btnConsulta2.Size = new System.Drawing.Size(147, 33);
@@ -65,7 +70,7 @@
             // btnConsulta5
             // 
             this.btnConsulta5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta5.Location = new System.Drawing.Point(340, 28);
+            this.btnConsulta5.Location = new System.Drawing.Point(37, 188);
             this.btnConsulta5.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta5.Name = "btnConsulta5";
             this.btnConsulta5.Size = new System.Drawing.Size(147, 33);
@@ -77,7 +82,7 @@
             // btnConsulta6
             // 
             this.btnConsulta6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta6.Location = new System.Drawing.Point(340, 77);
+            this.btnConsulta6.Location = new System.Drawing.Point(37, 225);
             this.btnConsulta6.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta6.Name = "btnConsulta6";
             this.btnConsulta6.Size = new System.Drawing.Size(147, 33);
@@ -89,7 +94,7 @@
             // btnConsulta3
             // 
             this.btnConsulta3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta3.Location = new System.Drawing.Point(175, 28);
+            this.btnConsulta3.Location = new System.Drawing.Point(37, 114);
             this.btnConsulta3.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta3.Name = "btnConsulta3";
             this.btnConsulta3.Size = new System.Drawing.Size(147, 33);
@@ -101,7 +106,7 @@
             // btnConsulta4
             // 
             this.btnConsulta4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta4.Location = new System.Drawing.Point(175, 77);
+            this.btnConsulta4.Location = new System.Drawing.Point(35, 151);
             this.btnConsulta4.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta4.Name = "btnConsulta4";
             this.btnConsulta4.Size = new System.Drawing.Size(147, 33);
@@ -113,7 +118,7 @@
             // btnConsulta7
             // 
             this.btnConsulta7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta7.Location = new System.Drawing.Point(505, 28);
+            this.btnConsulta7.Location = new System.Drawing.Point(35, 262);
             this.btnConsulta7.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta7.Name = "btnConsulta7";
             this.btnConsulta7.Size = new System.Drawing.Size(147, 33);
@@ -125,7 +130,7 @@
             // btnConsulta8
             // 
             this.btnConsulta8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta8.Location = new System.Drawing.Point(505, 77);
+            this.btnConsulta8.Location = new System.Drawing.Point(37, 299);
             this.btnConsulta8.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsulta8.Name = "btnConsulta8";
             this.btnConsulta8.Size = new System.Drawing.Size(147, 33);
@@ -134,22 +139,45 @@
             this.btnConsulta8.UseVisualStyleBackColor = true;
             this.btnConsulta8.Click += new System.EventHandler(this.btnConsulta8_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta8);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta7);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta5);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta4);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta6);
+            this.splitContainer1.Panel1.Controls.Add(this.btnConsulta3);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel2.BackgroundImage")));
+            this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.splitContainer1.Size = new System.Drawing.Size(940, 503);
+            this.splitContainer1.SplitterDistance = 226;
+            this.splitContainer1.TabIndex = 11;
+            // 
             // Cine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 136);
-            this.Controls.Add(this.btnConsulta8);
-            this.Controls.Add(this.btnConsulta7);
-            this.Controls.Add(this.btnConsulta4);
-            this.Controls.Add(this.btnConsulta3);
-            this.Controls.Add(this.btnConsulta6);
-            this.Controls.Add(this.btnConsulta5);
-            this.Controls.Add(this.btnConsulta2);
-            this.Controls.Add(this.btnConsulta1);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(940, 503);
+            this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Cine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cine";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -164,6 +192,7 @@
         private System.Windows.Forms.Button btnConsulta4;
         private System.Windows.Forms.Button btnConsulta7;
         private System.Windows.Forms.Button btnConsulta8;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

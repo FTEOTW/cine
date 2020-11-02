@@ -58,29 +58,30 @@
     <Compile Include="Pelicula.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\LoadInfo.cs" />
     <Compile Include="ventana_consultas\Consulta1.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta2.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta3.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta4.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta5.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta6.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta7.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ventana_consultas\Consulta8.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Cine.resx">
       <DependentUpon>Cine.cs</DependentUpon>
