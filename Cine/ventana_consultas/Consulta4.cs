@@ -10,10 +10,10 @@ namespace Cine.ventana_consultas
 {
     class Consulta4 : Control
     {
-        private Label lblConsulta2;
         private DataGridView dgvConsulta1;
         private DateTimePicker dateTimePicker1;
         private Label lblRow;
+        private Label label6;
         private Button btnConsulta;
 
         public Consulta4()
@@ -23,22 +23,13 @@ namespace Cine.ventana_consultas
 
         private void InitializeComponent()
         {
-            this.lblConsulta2 = new System.Windows.Forms.Label();
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblRow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblConsulta2
-            // 
-            this.lblConsulta2.AutoSize = true;
-            this.lblConsulta2.Location = new System.Drawing.Point(12, 10);
-            this.lblConsulta2.Name = "lblConsulta2";
-            this.lblConsulta2.Size = new System.Drawing.Size(242, 13);
-            this.lblConsulta2.TabIndex = 15;
-            this.lblConsulta2.Text = "Recaudación mensual, por pelicula, para el X año";
             // 
             // dgvConsulta1
             // 
@@ -80,16 +71,25 @@ namespace Cine.ventana_consultas
             this.lblRow.Size = new System.Drawing.Size(0, 13);
             this.lblRow.TabIndex = 17;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(366, 19);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Recaudacion mensual por pelicula para el año:";
+            // 
             // Consulta4
             // 
             this.ClientSize = new System.Drawing.Size(568, 340);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRow);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta4";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 4";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

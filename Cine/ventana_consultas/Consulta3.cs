@@ -10,10 +10,10 @@ namespace Cine.ventana_consultas
 {
     class Consulta3 : Control
     {
-        private Label lblConsulta2;
         private TextBox txtCantidadAnios;
         private DataGridView dgvConsulta1;
         private Label lblRow;
+        private Label label6;
         private Button btnConsulta;
 
         public Consulta3()
@@ -23,22 +23,13 @@ namespace Cine.ventana_consultas
 
         private void InitializeComponent()
         {
-            this.lblConsulta2 = new System.Windows.Forms.Label();
             this.txtCantidadAnios = new System.Windows.Forms.TextBox();
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.lblRow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblConsulta2
-            // 
-            this.lblConsulta2.AutoSize = true;
-            this.lblConsulta2.Location = new System.Drawing.Point(12, 16);
-            this.lblConsulta2.Name = "lblConsulta2";
-            this.lblConsulta2.Size = new System.Drawing.Size(258, 13);
-            this.lblConsulta2.TabIndex = 11;
-            this.lblConsulta2.Text = "Recaudación total por película de los últimos X años.";
             // 
             // txtCantidadAnios
             // 
@@ -78,16 +69,25 @@ namespace Cine.ventana_consultas
             this.lblRow.Size = new System.Drawing.Size(0, 13);
             this.lblRow.TabIndex = 12;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(411, 19);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Recaudación total por película de los últimos  X años";
+            // 
             // Consulta3
             // 
             this.ClientSize = new System.Drawing.Size(571, 346);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRow);
-            this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtCantidadAnios);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta3";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 3";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

@@ -13,10 +13,10 @@ namespace Cine.ventana_consultas
         private DataGridView dgvConsulta5;
         private TextBox txtEdadFrom;
         private MaskedTextBox txtEdadTo;
-        private Label lblConsulta2;
         private Label label1;
         private Label label2;
         private Label lblRow;
+        private Label label6;
         private Button btnConsulta5;
 
         public Consulta5()
@@ -30,10 +30,10 @@ namespace Cine.ventana_consultas
             this.dgvConsulta5 = new System.Windows.Forms.DataGridView();
             this.txtEdadFrom = new System.Windows.Forms.TextBox();
             this.txtEdadTo = new System.Windows.Forms.MaskedTextBox();
-            this.lblConsulta2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,16 +75,6 @@ namespace Cine.ventana_consultas
             this.txtEdadTo.TabIndex = 5;
             this.txtEdadTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdadTo_KeyPress);
             // 
-            // lblConsulta2
-            // 
-            this.lblConsulta2.AutoSize = true;
-            this.lblConsulta2.Location = new System.Drawing.Point(23, 23);
-            this.lblConsulta2.Name = "lblConsulta2";
-            this.lblConsulta2.Size = new System.Drawing.Size(576, 13);
-            this.lblConsulta2.TabIndex = 16;
-            this.lblConsulta2.Text = " Listar las películas que fueron vistas por los clientes en el rango de edad de X" +
-    " a X  años, ordenar en forma descendente";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -111,19 +101,28 @@ namespace Cine.ventana_consultas
             this.lblRow.Size = new System.Drawing.Size(0, 13);
             this.lblRow.TabIndex = 19;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(33, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(496, 19);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Peliculas que fueron vistas por clientees en un rango de edad  X";
+            // 
             // Consulta5
             // 
             this.ClientSize = new System.Drawing.Size(713, 450);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRow);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtEdadTo);
             this.Controls.Add(this.txtEdadFrom);
             this.Controls.Add(this.dgvConsulta5);
             this.Controls.Add(this.btnConsulta5);
             this.Name = "Consulta5";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 5";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta5)).EndInit();
             this.ResumeLayout(false);

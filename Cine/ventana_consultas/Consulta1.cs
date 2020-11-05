@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Cine.utils;
 namespace Cine
 {
-    public partial class Consulta1 : Control
+    public partial class Consulta1 : Form
     {
         private Button btnConsulta;
         private DataGridView dgvConsulta1;

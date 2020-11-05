@@ -42,11 +42,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCine = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConsulta1
@@ -63,7 +65,7 @@
             this.btnConsulta1.Name = "btnConsulta1";
             this.btnConsulta1.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta1.TabIndex = 0;
-            this.btnConsulta1.Text = "Consulta 1";
+            this.btnConsulta1.Text = " Rec. Medio Venta";
             this.btnConsulta1.UseVisualStyleBackColor = false;
             this.btnConsulta1.Click += new System.EventHandler(this.btnConsulta1_Click);
             // 
@@ -117,7 +119,7 @@
             this.btnConsulta8.Name = "btnConsulta8";
             this.btnConsulta8.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta8.TabIndex = 17;
-            this.btnConsulta8.Text = "Consulta 8";
+            this.btnConsulta8.Text = "Peliculas Actor y Dir.";
             this.btnConsulta8.UseVisualStyleBackColor = false;
             this.btnConsulta8.Click += new System.EventHandler(this.btnConsulta8_Click);
             // 
@@ -135,7 +137,7 @@
             this.btnConsulta7.Name = "btnConsulta7";
             this.btnConsulta7.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta7.TabIndex = 16;
-            this.btnConsulta7.Text = "Consulta 7";
+            this.btnConsulta7.Text = "Actores y Directores";
             this.btnConsulta7.UseVisualStyleBackColor = false;
             this.btnConsulta7.Click += new System.EventHandler(this.btnConsulta7_Click);
             // 
@@ -153,7 +155,7 @@
             this.btnConsulta6.Name = "btnConsulta6";
             this.btnConsulta6.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta6.TabIndex = 15;
-            this.btnConsulta6.Text = "Consulta 6";
+            this.btnConsulta6.Text = "Reservas Caidas";
             this.btnConsulta6.UseVisualStyleBackColor = false;
             this.btnConsulta6.Click += new System.EventHandler(this.btnConsulta6_Click);
             // 
@@ -171,7 +173,7 @@
             this.btnConsulta5.Name = "btnConsulta5";
             this.btnConsulta5.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta5.TabIndex = 14;
-            this.btnConsulta5.Text = "Consulta 5";
+            this.btnConsulta5.Text = "Edad Clientes";
             this.btnConsulta5.UseVisualStyleBackColor = false;
             this.btnConsulta5.Click += new System.EventHandler(this.btnConsulta5_Click);
             // 
@@ -189,7 +191,7 @@
             this.btnConsulta4.Name = "btnConsulta4";
             this.btnConsulta4.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta4.TabIndex = 13;
-            this.btnConsulta4.Text = "Consulta 4";
+            this.btnConsulta4.Text = "Rec. Mensual";
             this.btnConsulta4.UseVisualStyleBackColor = false;
             this.btnConsulta4.Click += new System.EventHandler(this.btnConsulta4_Click);
             // 
@@ -207,7 +209,7 @@
             this.btnConsulta3.Name = "btnConsulta3";
             this.btnConsulta3.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta3.TabIndex = 12;
-            this.btnConsulta3.Text = "Consulta 3";
+            this.btnConsulta3.Text = "Rec. Pelicula";
             this.btnConsulta3.UseVisualStyleBackColor = false;
             this.btnConsulta3.Click += new System.EventHandler(this.btnConsulta3_Click_1);
             // 
@@ -225,12 +227,13 @@
             this.btnConsulta2.Name = "btnConsulta2";
             this.btnConsulta2.Size = new System.Drawing.Size(223, 50);
             this.btnConsulta2.TabIndex = 11;
-            this.btnConsulta2.Text = "Consulta 2";
+            this.btnConsulta2.Text = "Visita con Reserva";
             this.btnConsulta2.UseVisualStyleBackColor = false;
             this.btnConsulta2.Click += new System.EventHandler(this.btnConsulta2_Click_1);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.lblCine);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -249,6 +252,15 @@
             this.lblCine.TabIndex = 0;
             this.lblCine.Text = "Cine";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Cine.Properties.Resources.descarga;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 67);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Cine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +278,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,6 +298,7 @@
         private System.Windows.Forms.Button btnConsulta8;
         private System.Windows.Forms.Button btnConsulta7;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

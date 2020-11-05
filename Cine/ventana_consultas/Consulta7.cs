@@ -10,7 +10,6 @@ namespace Cine.ventana_consultas
 {
     class Consulta7 : Control
     {
-        private Label lblConsulta2;
         private TextBox txtnombreActorTo;
         private DataGridView dgvConsulta1;
         private TextBox txtApellidoTo;
@@ -21,6 +20,8 @@ namespace Cine.ventana_consultas
         private Label label3;
         private Label label4;
         private Label lblRow;
+        private Label label6;
+        private Label label7;
         private Button btnConsulta;
 
         public Consulta7()
@@ -30,7 +31,6 @@ namespace Cine.ventana_consultas
 
         private void InitializeComponent()
         {
-            this.lblConsulta2 = new System.Windows.Forms.Label();
             this.txtnombreActorTo = new System.Windows.Forms.TextBox();
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
@@ -42,17 +42,10 @@ namespace Cine.ventana_consultas
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblRow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblConsulta2
-            // 
-            this.lblConsulta2.AutoSize = true;
-            this.lblConsulta2.Location = new System.Drawing.Point(9, 19);
-            this.lblConsulta2.Name = "lblConsulta2";
-            this.lblConsulta2.Size = new System.Drawing.Size(367, 13);
-            this.lblConsulta2.TabIndex = 15;
-            this.lblConsulta2.Text = "Listado de actores donde su nombre no comience con las letras A hasta la F";
             // 
             // txtnombreActorTo
             // 
@@ -156,9 +149,31 @@ namespace Cine.ventana_consultas
             this.lblRow.Size = new System.Drawing.Size(0, 13);
             this.lblRow.TabIndex = 23;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(313, 19);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Actores donde su nombre no comience ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(358, 19);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Directores con Apellido que no comience con ";
+            // 
             // Consulta7
             // 
             this.ClientSize = new System.Drawing.Size(669, 391);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRow);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -167,12 +182,10 @@ namespace Cine.ventana_consultas
             this.Controls.Add(this.txtnombreActorFrom);
             this.Controls.Add(this.txtApellidoFrom);
             this.Controls.Add(this.txtApellidoTo);
-            this.Controls.Add(this.lblConsulta2);
             this.Controls.Add(this.txtnombreActorTo);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta7";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 7";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);

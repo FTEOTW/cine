@@ -11,8 +11,8 @@ namespace Cine.ventana_consultas
     class Consulta6 : Control
     {
         private DataGridView dgvConsulta1;
-        private Label lblConsulta6;
         private Label lblRow;
+        private Label label6;
         private Button btnConsulta;
 
         public Consulta6()
@@ -24,8 +24,8 @@ namespace Cine.ventana_consultas
         {
             this.dgvConsulta1 = new System.Windows.Forms.DataGridView();
             this.btnConsulta = new System.Windows.Forms.Button();
-            this.lblConsulta6 = new System.Windows.Forms.Label();
             this.lblRow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,15 +51,6 @@ namespace Cine.ventana_consultas
             this.btnConsulta.UseVisualStyleBackColor = true;
             this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
-            // lblConsulta6
-            // 
-            this.lblConsulta6.AutoSize = true;
-            this.lblConsulta6.Location = new System.Drawing.Point(9, 44);
-            this.lblConsulta6.Name = "lblConsulta6";
-            this.lblConsulta6.Size = new System.Drawing.Size(236, 13);
-            this.lblConsulta6.TabIndex = 6;
-            this.lblConsulta6.Text = "Muestra los clientes que se le cayeron la reserva";
-            // 
             // lblRow
             // 
             this.lblRow.AutoSize = true;
@@ -68,15 +59,24 @@ namespace Cine.ventana_consultas
             this.lblRow.Size = new System.Drawing.Size(0, 13);
             this.lblRow.TabIndex = 7;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(338, 19);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Lista de clientes que se les cayo su reserva";
+            // 
             // Consulta6
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRow);
-            this.Controls.Add(this.lblConsulta6);
             this.Controls.Add(this.dgvConsulta1);
             this.Controls.Add(this.btnConsulta);
             this.Name = "Consulta6";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta 6";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta1)).EndInit();
             this.ResumeLayout(false);
