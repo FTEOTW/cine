@@ -41,12 +41,12 @@ namespace Cine
             ChangeControl(new Consulta1());
         }
 
-        private void btnConsulta2_Click(object sender, EventArgs e)
+        private void btnConsulta2_Click_1(object sender, EventArgs e)
         {
             ChangeControl(new Consulta2());
         }
 
-        private void btnConsulta3_Click(object sender, EventArgs e)
+        private void btnConsulta3_Click_1(object sender, EventArgs e)
         {
             ChangeControl(new Consulta3());
         }
